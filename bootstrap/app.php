@@ -11,6 +11,9 @@
 |
 */
 
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
+
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
@@ -40,6 +43,10 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+
+$app->configureMonologUsing(function($monolog) {
+   $monolog->pushHandler(new StreamHandler(storage_path('logs/log-'.php_sapi_name().'.log'), Logger::DEBUG, true, 0775));
+});
 
 /*
 |--------------------------------------------------------------------------
