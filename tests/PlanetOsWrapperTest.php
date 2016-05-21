@@ -10,8 +10,11 @@ class PlanetOsWrapperTest extends TestCase {
 
     public function testHasConnnection() {
         $service = new \App\Services\PlanetOsApiWrapper();
-        $key = $service->getDataset("noaa_ww3_global_1.25x1d", "-50.5", "49.5");
-        \Illuminate\Support\Facades\Log::debug($key);
+        /** @var \GuzzleHttp\Client $result */
+        $result = $service->getDataset("noaa_ww3_global_1.25x1d", "-50.5", "49.5");
+        \Illuminate\Support\Facades\Log::debug($result->getBody());
+
+        $this->assertEquals(200, $result->getStatusCode());
     }
 
 }

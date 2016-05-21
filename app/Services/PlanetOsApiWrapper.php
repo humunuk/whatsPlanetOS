@@ -20,7 +20,7 @@ class PlanetOsApiWrapper {
         $fullUrl = $this->url . "$dataset/" . "point?lon=".$longitude."&"."lat=".$latitude."&apikey=".$this->apiKey;
         $result = $this->client->request("GET", $fullUrl);
 
-        return $result->getBody();
+        return $result;
     }
 
 }
