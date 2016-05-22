@@ -18,7 +18,7 @@ class PlanetOsWrapperTest extends TestCase {
     }
     
     public function testCreatesDatasetObject() {
-        $dataset = new \PlanetOsApi\Dataset("myocean_sst_baltic_daily");
+        $dataset = new \PlanetOsApi\Dataset("copernicus_goba_global_weekly");
         Log::debug(print_r($dataset, true));
     }
 

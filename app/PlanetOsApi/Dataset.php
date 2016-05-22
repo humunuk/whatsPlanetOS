@@ -63,7 +63,11 @@ class Dataset {
                     $this->resource = $value;
                     break;
                 case "Variables":
-                    $this->variables = $value;
+                    $parsed = [];
+                    foreach ($value as $item) {
+                        $parsed[$item['name']] = $item;
+                    }
+                    $this->variables = $parsed;
                     break;
             }
         }

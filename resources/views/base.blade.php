@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{URL::to('css/leaflet.css')}}" type="text/css">
         <script src="{{URL::to('js/app.js')}}"></script>
         <script src="{{URL::to('js/leaflet.js')}}"></script>
+        <script src="{{URL::to('js/L.Graticule.js')}}"></script>
     </head>
     <body>
     @section('nav')
