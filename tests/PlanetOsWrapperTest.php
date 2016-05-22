@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Log;
 
 /**
  * Created by PhpStorm.
@@ -9,12 +10,16 @@
 class PlanetOsWrapperTest extends TestCase {
 
     public function testHasConnnection() {
-        $service = new \App\Services\PlanetOsApiWrapper();
+        $service = new \PlanetOsApi\PlanetOsApiWrapper();
         /** @var \GuzzleHttp\Client $result */
-        $result = $service->getDataset("noaa_ww3_global_1.25x1d", "-50.5", "49.5");
-        \Illuminate\Support\Facades\Log::debug($result->getBody());
+        $result = $service->getDataset("myocean_sst_baltic_daily");
 
         $this->assertEquals(200, $result->getStatusCode());
+    }
+    
+    public function testCreatesDatasetObject() {
+        $dataset = new \PlanetOsApi\Dataset("myocean_sst_baltic_daily");
+        Log::debug(print_r($dataset, true));
     }
 
 }

@@ -50,6 +50,7 @@ class ComposerStaticInitaaf3e07ec1164e0ea5a223e2cca32d4e
         array (
             'Psy\\' => 4,
             'Psr\\Http\\Message\\' => 17,
+            'PlanetOsApi\\' => 12,
             'PhpParser\\' => 10,
         ),
         'M' => 
@@ -170,6 +171,10 @@ class ComposerStaticInitaaf3e07ec1164e0ea5a223e2cca32d4e
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'PlanetOsApi\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/PlanetOsApi',
         ),
         'PhpParser\\' => 
         array (
@@ -297,7 +302,6 @@ class ComposerStaticInitaaf3e07ec1164e0ea5a223e2cca32d4e
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\Services\\PlanetOsApiWrapper' => __DIR__ . '/../..' . '/app/Services/PlanetOsApiWrapper.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
@@ -2217,6 +2221,7 @@ class ComposerStaticInitaaf3e07ec1164e0ea5a223e2cca32d4e
         'PhpParser\\Serializer\\XML' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Serializer/XML.php',
         'PhpParser\\Unserializer' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Unserializer.php',
         'PhpParser\\Unserializer\\XML' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Unserializer/XML.php',
+        'PlanetOsApi\\PlanetOsApiWrapper' => __DIR__ . '/../..' . '/app/PlanetOsApi/PlanetOsApiWrapper.php',
         'Prophecy\\Argument' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument.php',
         'Prophecy\\Argument\\ArgumentsWildcard' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument/ArgumentsWildcard.php',
         'Prophecy\\Argument\\Token\\AnyValueToken' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument/Token/AnyValueToken.php',

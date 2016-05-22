@@ -45,7 +45,8 @@ $app->singleton(
 );
 
 $app->configureMonologUsing(function($monolog) {
-   $monolog->pushHandler(new StreamHandler(storage_path('logs/log-'.php_sapi_name().'.log'), Logger::DEBUG, true, 0775));
+    $handler = (new StreamHandler(storage_path('logs/log-'.php_sapi_name().'.txt'), Logger::DEBUG, true, 0775))->setFormatter(new \Monolog\Formatter\LineFormatter(null, null, true, true));
+   $monolog->pushHandler($handler);
 });
 
 /*
