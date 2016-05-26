@@ -18,23 +18,27 @@ class Controller extends BaseController {
 
     public function getIndex() {
         $wrapper = new PlanetOsApiWrapper();
-        $dataset = new Dataset("copernicus_goba_global_weekly");
-        $datasetDetails = $wrapper->getPointDataset($dataset->name, 59.45, 24.76, 1, "all");
+        $datasets = Dataset::all();
+        $datasetDetails = $wrapper->getPointDataset($datasets[0]->name, 59.45, 24.76, 1, "all");
 
-        Log::debug(print_r($dataset, true));
-
-        return view('landing')->with(['datasetDetails' => $datasetDetails, 'dataset' => $dataset]);
+        return view('landing')->with(['datasetDetails' => $datasetDetails, 'datasets' => $datasets]);
     }
 
-    public function getDetails(Request $request) {
+    public function postDetails(Request $request) {
         $rules = ['api' => 'required|max:100', 'lat' => 'required|numeric', 'lng' => 'required|numeric'];
         $this->validate($request, $rules);
 
         $inputs = $request->all();
 
-        $wrapper = new PlanetOsApiWrapper();
-        $datasetDetails = $wrapper->getPointDataset($inputs['api'], $inputs['lat'], $inputs['lng']);
+        Log::debug(print_r($inputs, true));
 
-        return response()->json($datasetDetails);
+        $wrapper = new PlanetOsApiWrapper();
+        $datasetDetails = $wrapper->getPointDataset($inputs['api'], $inputs['lat'], $inputs['lng'], $inputs['count']);
+
+        Log::debug(print_r($datasetDetails, true));
+
+        $view = view('elem.table')->with('datasetDetails', $datasetDetails)->render();
+
+        return response()->json($view);
     }
 }

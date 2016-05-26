@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddDataset' => $baseDir . '/database/migrations/2016_05_26_160542_add_Dataset.php',
+    'App\\Console\\Commands\\FetchDatasets' => $baseDir . '/app/Console/Commands/FetchDatasets.php',
     'App\\Console\\Commands\\Inspire' => $baseDir . '/app/Console/Commands/Inspire.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Events\\Event' => $baseDir . '/app/Events/Event.php',
@@ -1943,6 +1945,7 @@ return array(
     'PhpParser\\Serializer\\XML' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Serializer/XML.php',
     'PhpParser\\Unserializer' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Unserializer.php',
     'PhpParser\\Unserializer\\XML' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Unserializer/XML.php',
+    'PlanetOsApi\\Dataset' => $baseDir . '/app/PlanetOsApi/Dataset.php',
     'PlanetOsApi\\PlanetOsApiWrapper' => $baseDir . '/app/PlanetOsApi/PlanetOsApiWrapper.php',
     'Prophecy\\Argument' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Argument.php',
     'Prophecy\\Argument\\ArgumentsWildcard' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Argument/ArgumentsWildcard.php',

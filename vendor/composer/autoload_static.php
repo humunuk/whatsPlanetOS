@@ -284,6 +284,8 @@ class ComposerStaticInitaaf3e07ec1164e0ea5a223e2cca32d4e
     );
 
     public static $classMap = array (
+        'AddDataset' => __DIR__ . '/../..' . '/database/migrations/2016_05_26_160542_add_Dataset.php',
+        'App\\Console\\Commands\\FetchDatasets' => __DIR__ . '/../..' . '/app/Console/Commands/FetchDatasets.php',
         'App\\Console\\Commands\\Inspire' => __DIR__ . '/../..' . '/app/Console/Commands/Inspire.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Events\\Event' => __DIR__ . '/../..' . '/app/Events/Event.php',
@@ -2221,6 +2223,7 @@ class ComposerStaticInitaaf3e07ec1164e0ea5a223e2cca32d4e
         'PhpParser\\Serializer\\XML' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Serializer/XML.php',
         'PhpParser\\Unserializer' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Unserializer.php',
         'PhpParser\\Unserializer\\XML' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Unserializer/XML.php',
+        'PlanetOsApi\\Dataset' => __DIR__ . '/../..' . '/app/PlanetOsApi/Dataset.php',
         'PlanetOsApi\\PlanetOsApiWrapper' => __DIR__ . '/../..' . '/app/PlanetOsApi/PlanetOsApiWrapper.php',
         'Prophecy\\Argument' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument.php',
         'Prophecy\\Argument\\ArgumentsWildcard' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Argument/ArgumentsWildcard.php',
