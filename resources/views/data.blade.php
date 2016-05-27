@@ -14,7 +14,7 @@
                 <form action="{{URL::action('Controller@postDetails')}}" class="form-group" id="search">
                     <select name="availableApis" id="apis" class="form-control">
                         @foreach($datasets as $dataset)
-                            <option value="{{$dataset->name}}">{{$dataset->title}}</option>
+                            <option value="{{$dataset['name']}}">{{$dataset['title']}}</option>
                         @endforeach
                     </select>
                     <div class="form-group" style="margin-top: 5px;">
@@ -26,10 +26,6 @@
                             Longitude:
                             <input type="text" class="form-control" id="lng" placeholder="Longitude">
                         </div>
-                        <div class="col-sm-4">
-                            Mitu:
-                            <input type="text" class="form-control" id="depth" placeholder="Mitu" value="1">
-                        </div>
                     </div>
                     <button class="btn btn-success form-control" type="submit" style="margin: 6px;">Otsi</button>
                 </form>
@@ -40,7 +36,12 @@
                     </ul>
                     <div class="tab-content">
                         <div id="metaData" class="tab-pane">
-                            @include('elem.meta', ['dataset' => $dataset[0]])
+                            <div id="{{$datasets[0]['name']}}">
+                                @include('elem.meta', ['dataset' => $datasets[0]])
+                            </div>
+                            <div id="hycom">
+                                @include('elem.meta', ['dataset' => $datasets[1]])
+                            </div>
                         </div>
                         <div id="details" class="tab-pane active js-details">
                             @include('elem.table', ['datasetDetails' => $datasetDetails])

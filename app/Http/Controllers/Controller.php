@@ -23,8 +23,8 @@ class Controller extends BaseController {
 
     public function getData() {
         $wrapper = new PlanetOsApiWrapper();
-        $datasets = Dataset::all();
-        $datasetDetails = $wrapper->getPointDataset($datasets[0]->name, 59.45, 24.76, 1, "all");
+        $datasets = Dataset::all(['name', 'title', 'abstract', 'updateFrequency', 'refreshed', 'resource', 'extentStart', 'extentEnd', 'verticalExtent'])->toArray();
+        $datasetDetails = $wrapper->getPointDataset($datasets[0]['name'], 59.45, 24.76, 1, "all");
 
         return view('data')->with(['datasetDetails' => $datasetDetails, 'datasets' => $datasets]);
     }
@@ -35,12 +35,9 @@ class Controller extends BaseController {
 
         $inputs = $request->all();
 
-        Log::debug(print_r($inputs, true));
-
         $wrapper = new PlanetOsApiWrapper();
-        $datasetDetails = $wrapper->getPointDataset($inputs['api'], $inputs['lat'], $inputs['lng'], $inputs['count']);
+        $datasetDetails = $wrapper->getPointDataset($inputs['api'], $inputs['lat'], $inputs['lng']);
 
-        Log::debug(print_r($datasetDetails, true));
 
         $view = view('elem.table')->with('datasetDetails', $datasetDetails)->render();
 
