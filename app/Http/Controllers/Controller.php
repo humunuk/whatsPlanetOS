@@ -17,11 +17,16 @@ class Controller extends BaseController {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
     public function getIndex() {
+
+        return view('landing');
+    }
+
+    public function getData() {
         $wrapper = new PlanetOsApiWrapper();
         $datasets = Dataset::all();
         $datasetDetails = $wrapper->getPointDataset($datasets[0]->name, 59.45, 24.76, 1, "all");
 
-        return view('landing')->with(['datasetDetails' => $datasetDetails, 'datasets' => $datasets]);
+        return view('data')->with(['datasetDetails' => $datasetDetails, 'datasets' => $datasets]);
     }
 
     public function postDetails(Request $request) {
